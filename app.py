@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 import requests
+import sklearn
 from io import BytesIO
 
 # Load model
