@@ -1,12 +1,18 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import requests
+from io import BytesIO
 
-# Load model and scaler
-with open("logistic_model.pkl", "rb") as f:
-    model = pickle.load(f)
-with open("scaler.pkl", "rb") as f:
-    scaler = pickle.load(f)
+# Load model
+model_url = "https://github.com/Om-Kumar-Ace/Diabetes-Health-Indicator/raw/main/logistic_model.pkl"
+model_response = requests.get(model_url)
+model = pickle.load(BytesIO(model_response.content))
+
+# Load scaler
+scaler_url = "https://github.com/Om-Kumar-Ace/Diabetes-Health-Indicator/raw/main/scaler.pkl"
+scaler_response = requests.get(scaler_url)
+scaler = pickle.load(BytesIO(scaler_response.content))
 
 # Define expected feature order
 feature_order = scaler.feature_names_in_
