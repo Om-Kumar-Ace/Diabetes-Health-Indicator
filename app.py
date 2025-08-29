@@ -63,5 +63,15 @@ if submitted:
     prediction = model.predict(scaled_input)[0]
     probability = model.predict_proba(scaled_input)[0][1]
 
-    st.success(f"Prediction: {'Diabetic' if prediction == 1 else 'Non-Diabetic'}")
-    st.info(f"Probability of diabetes: {probability:.2f}")
+    if prediction == 0:
+        st.success("🎉 Prediction: Non-Diabetic")
+        st.info(f"Probability of diabetes: {probability:.2f}")
+        st.balloons()
+    else:
+        st.warning("⚠️ Prediction: Diabetic")
+        st.info(f"Probability of diabetes: {probability:.2f}")
+
+
+
+st.markdown("---")
+st.caption("⚠️ This prediction is based on statistical modeling and may not be fully accurate. Please consult a medical professional for a proper diagnosis.")
