@@ -1,5 +1,6 @@
-scikit-learn==1.3.0
 pandas==2.3.2
 numpy
 streamlit==1.49.0
 requests
+scikit-learn
+--pre scikit-learn --extra-index-url https://pypi.anaconda.org/scikit-learn-nightly/simple
